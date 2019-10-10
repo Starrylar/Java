@@ -26,3 +26,125 @@ public class AnalyzeNumbers {
 	}
 
 }
+
+7-2
+package deckOfCards;
+
+public class DeckOfCards {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] deck=new int[52];
+		String[] suits= {"Spades","Hearts","Diamonds","Clubs"};
+		String[] ranks= {"Ace","2","3","4","5","6","7","8","9","10","Jack","Queen","King"};
+		for(int i=0;i<deck.length;i++)
+			deck[i]=i;
+		for(int i=0;i<deck.length;i++) {
+			int index=(int)(Math.random()*deck.length);
+			int temp=deck[i];
+			deck[i]=deck[index];
+			deck[index]=temp;
+		}
+		for(int i=0;i<4;i++) {
+			String suit=suits[deck[i]/13];
+			String rank=ranks[deck[i]%13];
+			System.out.println("Card number "+deck[i]+": "+rank+" of "+suit);
+		}
+		}
+
+}
+
+7-3
+package testPassArray;
+
+public class TestPassArray {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] a= {1,2};
+		System.out.println("Before invoking swap");
+		System.out.println("array is{"+a[0]+", "+a[1]+"}");
+		swap(a[0],a[1]);
+		System.out.println("Before invoking swapFirstTwoInArray");
+		System.out.println("array is {"+a[0]+", "+a[1]+"}");
+		swapFirstTwoInArray(a);
+		System.out.println("After invoking swapFirstTwoInArray");
+		System.out.println("array is {"+a[0]+", "+a[1]+"}");
+	}
+	public static void swap(int n1,int n2) {
+		int temp=n1;
+		n1=n2;
+		n2=temp;
+	}
+	public static void swapFirstTwoInArray(int[] array) {
+		int temp=array[0];
+		array[0]=array[1];
+		array[1]=temp;
+	}
+}
+
+7-4
+package countLettersInArray;
+
+public class CountLettersInArray {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		char[] chars=createArray();
+		System.out.println("The lowercase letters are:");
+		displayArray(chars);
+		int[] counts=countLetters(chars);
+		System.out.println();
+		System.out.println("The occurrences of each letter are:");
+		displayCounts(counts);
+	}
+	public static char[] createArray() {
+		char[] chars=new char[100];
+		for(int i=0;i<chars.length;i++)
+			chars[i]=RandomCharacter.getRandomLowerCaseLetter();
+		return chars;
+	}
+	public static void displayArray(char[] chars) {
+		for(int i=0;i<chars.length;i++) {
+			if((i+1)%20==0)
+				System.out.println(chars[i]);
+			else
+				System.out.println(chars[i]+" ");
+		}
+	}
+	public static int[] countLetters(char[] chars) {
+		int[] counts=new int[26];
+		for(int i=0;i<chars.length;i++)
+			counts[chars[i]-'a']++;
+		return counts;
+	}
+	public static void displayCounts(int[] counts) {
+		for(int i=0;i<counts.length;i++) {
+			if((i+1)%10==0)
+				System.out.println(counts[i]+" "+(char)(i+'a'));
+			else
+				System.out.println(counts[i]+" "+(char)(i+'a')+" ");
+		}
+	}
+}
+package countLettersInArray;
+
+public class RandomCharacter {
+
+		    //生成一个介于ch1 和 ch2 的随机字母
+
+		    public static char getRandomCharacter(char ch1, char ch2) {
+
+		        return (char) (ch1 + Math.random() * (ch2 - ch1 + 1));
+		    }
+
+		    //生成一个随机的小写字母
+
+		    public static char getRandomLowerCaseLetter() {
+
+		        return getRandomCharacter('a', 'z');
+		    }
+
+		}
+		
+	
