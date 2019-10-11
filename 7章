@@ -147,4 +147,105 @@ public class RandomCharacter {
 
 		}
 		
-	
+7-5
+package varArgsDemo;
+
+public class VarArgsDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		printMax(34,3,3,2,56.5);
+		printMax(new double[] {1,2,3});
+	}
+		public static void printMax(double...numbers) {
+			if(numbers.length==0) {
+				System.out.println("No argument passed");
+				return;
+			}
+			double result=numbers[0];
+			for(int i=1;i<numbers.length;i++)
+				if(numbers[i]>result)
+					result=numbers[i];
+			System.out.println("The max value is  "+result);
+		}
+	}
+7-6
+package linearSearch;
+
+public class LinearSearch {
+
+		// TODO Auto-generated method stub
+	public static int linearSearth(int[] list,int key) {
+		for(int i=0;i<list.length;i++) {
+			if(key==list[i])
+				return i;
+		}
+		return -1;
+	}
+}
+
+7-7
+package binarySearch;
+
+public class BinarySearch {
+
+	public static int binarySearch(int[] list,int key) {
+		int low=0;
+		int high=list.length-1;
+		while(high>=low) {
+			int mid=(low+high)/2;
+			if(key<list[mid])
+				high=mid-1;
+			else if(key==list[mid])
+				return mid;
+			else
+				low=mid+1;
+		}
+		return -low-1;
+	}
+}
+
+7-8
+package SelectionSort;
+
+public class SelectionSort {
+	public static void selectionSort(double[] list) {
+		for(int i=0;i<list.length;i++) {
+			double currentMin=list[i];
+			int currentMinIndex=i;
+			for(int j=i+1;j<list.length;j++) {
+				if(currentMin>list[j]) {
+					currentMin=list[j];
+					currentMinIndex=j;
+				}
+			}
+			if(currentMinIndex!=i) {
+				list[currentMinIndex]=list[i];
+				list[i]=currentMin;
+			}
+		}
+	}
+}
+
+7-9
+package calculator;
+
+public class Calculator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		if(args.length!=3) {
+			System.out.println("Usage: java Calculator operand1 operantor operand2");
+			System.exit(0);
+		}
+		int result=0;
+		switch(args[1].charAt(0)) {
+		case '+': result=Integer.parseInt(args[0])+Integer.parseInt(args[2]);break;
+		case '-': result=Integer.parseInt(args[0])-Integer.parseInt(args[2]);break;
+		case '.': result=Integer.parseInt(args[0])*Integer.parseInt(args[2]);break;
+		case '/': result=Integer.parseInt(args[0])/Integer.parseInt(args[2]);break;
+		}
+		System.out.println(args[0]+' '+args[1]+' '+args[2]+" = "+result);
+	}
+
+}
