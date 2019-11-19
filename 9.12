@@ -1,0 +1,73 @@
+import java.util.Scanner;
+public class CrossPoint {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input=new Scanner(System.in);
+		System.out.println("Please enter x1: ");
+		double x1=input.nextDouble();
+		System.out.println("Please enter y1: ");
+		double y1=input.nextDouble();
+		System.out.println("Please enter x2: ");
+		double x2=input.nextDouble();
+		System.out.println("Please enter y2: ");
+		double y2=input.nextDouble();
+		System.out.println("Please enter x3: ");
+		double x3=input.nextDouble();
+		System.out.println("Please enter y3: ");
+		double y3=input.nextDouble();
+		System.out.println("Please enter x4: ");
+		double x4=input.nextDouble();
+		System.out.println("Please enter y4: ");
+		double y4=input.nextDouble();
+		linearEquation LinearEquation=new linearEquation(y1-y2,x2-x1,y3-y4,x4-x3,(y1 - y2) * x1 - (x1 - x2) * y1,(y3 - y4) * x3 - (x3 - x4) * y3);
+		if(LinearEquation.isSolvalue()){
+			System.out.println("("+LinearEquation.getX()+","+LinearEquation.getY()+")");
+		}
+		else
+			System.out.println("Have no cross point.");
+	}
+
+}
+
+
+
+public class linearEquation {
+	final double EPSILON=1E-14;
+	private double a,b,c,d,e,f;
+	linearEquation(double newA,double newB,double newC,double newD,double newE,double newF){
+		a=newA;
+		b=newB;
+		c=newC;
+		d=newD;
+		e=newE;
+		f=newF;
+	}
+	public double getA(){
+		return a;
+	}
+	public double getB(){
+		return b;
+	}
+	public double getC(){
+		return c;
+	}
+	public double getD(){
+		return d;
+	}
+	public double getE(){
+		return e;
+	}
+	public double getF(){
+		return f;
+	}
+	public boolean isSolvalue(){
+		return Math.abs((a*d-b*c)-0)>EPSILON?true:false;
+	}
+	public double getX(){
+		return (e*d-b*f)/(a*d-b*c);
+	}
+	public double getY(){
+		return (a*f-e*c)/(a*d-b*c);
+	}
+}
