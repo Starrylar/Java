@@ -30,10 +30,14 @@ public class CircleFromSimpleGeometricObject extends SimpleGeometricObject{
 	}
 	
 	/** Return diameter */
-	public double getPerimeter() {
+	public double getDiameter() {
 		return 2*radius;
 	}
 	
+	/** Return perimeter */
+	public double getPerimter() {
+		return 2*radius*Math.PI;
+	}
 	/** Print the circle info */
 	public void printCircle() {
 		System.out.println("The circle is created "+getDateCreated()+" and the radius is "+radius);
