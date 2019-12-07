@@ -52,3 +52,84 @@ public class Number {
 	}
 
 }
+
+
+7.17
+import java.util.Scanner;
+import java.util.Collections;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Iterator;
+public class StudentSort {
+
+	public static void main(String[] args) {
+	Scanner input=new Scanner(System.in);
+	ArrayList<Student> student=new ArrayList<Student>();
+	System.out.print("Enter the number of students: ");
+	int n=input.nextInt();
+	for(int i=0;i<n;i++) {
+		System.out.print("Enter the student's name: ");
+		String name=input.next();
+		System.out.print("Enter the student's score: ");
+		int score=input.nextInt();
+		Student s=new Student();
+		s.setname(name);
+		s.setscore(score);
+		student.add(s);
+	}
+	Collections.sort(student,new ScoreComparator());
+	for(int i=0;i<student.size();i++) {
+		Student s=student.get(i);
+		System.out.println(s.getname()+"\t"+s.getscore());
+	}
+	//myprint(student);
+	}
+	static class ScoreComparator implements Comparator{
+		public int compare(Object object1,Object object2) {
+			Student s1=(Student)object1;
+			Student s2=(Student)object2;
+			return new Integer(s2.getscore()).compareTo(new Integer(s1.getscore()));
+		}
+	}
+	
+	public  static void myprint(ArrayList<Student> student) {
+		Iterator it=student.iterator();
+		while(it.hasNext()) {
+			System.out.println("\t"+it.next());
+		}
+	}
+}
+
+
+public class Student {
+	private String name;
+	private int score;
+
+public Student(){
+	}
+public Student(String name,int score) {
+	this.name=name;
+	this.score=score;
+}
+
+public String getname() {
+	return name;
+}
+public void setname(String name) {
+	this.name=name;
+}
+
+public int getscore() {
+	return score;
+}
+public void setscore(int score) {
+	this.score=score;
+}
+
+public int compareTo(Object obj) {
+	Student s=(Student)obj;
+	return this.score-s.score;
+}
+}
+
+
