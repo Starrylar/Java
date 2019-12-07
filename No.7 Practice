@@ -198,3 +198,34 @@ public class TextList {
 }
 
 
+7.23
+
+public class OpenClose {
+
+	public static void main(String[] args) {
+		boolean[] box=new boolean[101];
+		for(int s=1;s<=100;s++) {
+			if(s==1) {
+				for(int i=1;i<101;i++) {
+					box[i]=!box[i];
+				}
+			}
+			else {
+				for(int j=s;j<101;j+=s) {
+					box[j]=!box[j];
+				}
+			}
+		}
+		for(int i=1;i<101;i++) {
+			if(box[i])
+			System.out.print(1+" ");
+			else
+			System.out.print(0+" ");
+			if(i%10==0)
+			System.out.println();
+		}
+	}
+
+}
+
+
