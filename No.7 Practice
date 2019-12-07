@@ -28,3 +28,27 @@ public class NumberTime {
 }
 
 
+7.5
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class Number {
+
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+		ArrayList<Integer> number=new ArrayList<>();
+		int[] array=new int[10];
+		System.out.print("Enter ten numbers: ");
+		for(int i=0;i<10;i++) {
+			int temp=input.nextInt();
+			if(!number.contains(temp))
+			number.add(temp);
+		}
+		System.out.println("The number of distinct number is "+number.size());
+		System.out.print("The distinct numbers are ");
+		for(int i=0;i<number.size();i++) {
+			System.out.print(number.get(i)+" ");
+		}
+	}
+
+}
