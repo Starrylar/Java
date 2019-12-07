@@ -161,3 +161,40 @@ public class BubbleSort {
 }
 
 
+7.19import java.util.Scanner;
+
+public class TextList {
+
+	public static void main(String[] args) {
+				Scanner input=new Scanner(System.in);
+				int n=input.nextInt();
+				int[] num=new int[n];
+				int[] text=new int[n];
+				for(int i=0;i<n;i++) {
+					num[i]=input.nextInt();
+					text[i]=num[i];
+				}
+				for(int i=0;i<n-1;i++) {
+					for(int j=0;j<n-1;j++) {
+						if(text[j]>text[j+1]) {
+							int temp=text[j];
+							text[j]=text[j+1];
+							text[j+1]=temp;
+						}
+					}
+				}
+				int flag=1;
+				for(int i=0;i<n;i++) {
+					if(num[i]!=text[i]) {
+					flag=0;
+					break;
+				}
+				}
+					if(flag==1)
+						System.out.println("The list is already sorted ");
+					else
+					System.out.println("The list is not sorted ");
+			}
+}
+
+
