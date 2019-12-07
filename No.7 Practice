@@ -1,0 +1,30 @@
+7.3
+import java.util.Scanner;
+import java.util.Collections;
+import java.util.ArrayList;
+public class NumberTime {
+
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+		ArrayList<Integer> list=new ArrayList<>();
+		while(true) {
+			int m=input.nextInt();
+			if(m==0)
+				break;
+			list.add(m);
+		}
+		Collections.sort(list);
+		int max=Collections.max(list);
+		int[] count=new int[101];
+		for(int number:list) {
+			count[number]++;
+		}
+		for(int i=0;i<=max;i++) {
+			if(count[i]!=0)
+				System.out.println(i+" occurs "+count[i]+" times");
+		}
+	}
+
+}
+
+
