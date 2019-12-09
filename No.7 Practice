@@ -305,4 +305,38 @@ public class pocks {
 }
 
 
+7.31
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class MergeArray {
+
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+		System.out.print("Enter list1: ");
+		int n=input.nextInt();
+		int[] list1=new int[n];
+		for(int i=0;i<list1.length;i++)
+			list1[i]=input.nextInt();
+		System.out.print("Enter list2: ");
+		int m=input.nextInt();
+		int[] list2=new int[m];
+		for(int i=0;i<list2.length;i++)
+			list2[i]=input.nextInt();
+		
+		int[] arrays=merge(list1,list2);
+		System.out.println("The merged list is "+Arrays.toString(arrays));
+	}
+	public static int[] merge(int[] list1,int[] list2) {
+		int[] newlist=new int[list1.length+list2.length];
+		System.arraycopy(list1,0,newlist,0,list1.length);
+		System.arraycopy(list2,0,newlist,list1.length,list2.length);
+		Arrays.sort(newlist);
+		return newlist;
+	}
+}
+
+
+
+
 
