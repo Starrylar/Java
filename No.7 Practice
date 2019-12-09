@@ -337,6 +337,25 @@ public class MergeArray {
 }
 
 
+7.34
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class StringSort {
+
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+		String str1=input.next();
+		String str2=sort(str1);
+		System.out.println(str2);
+	}
+	public static String sort(String str1) {
+		char[] ch=str1.toCharArray();
+		Arrays.sort(ch);
+		String result=String.valueOf(ch);
+		return result;
+	}
+}
 
 
 
